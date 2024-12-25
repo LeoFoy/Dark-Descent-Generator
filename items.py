@@ -42,8 +42,10 @@ class Items:
     #Menu
         #BUTTONS
         #Treasure Room 
-        
-        
+        treasure_button = b.Button(140, 300, "Treasure Room", 'Arial', 40, (255, 255, 255), 1.0)
+        if treasure_button.draw(self.display):
+            self.generate_treasure()
+
         #Secret Room
         #Boss Room
         #Shop 
@@ -60,6 +62,26 @@ class Items:
         # Show output if the item list is not empty
         if self.item_list:
             self.display_output()
+
+    def generate_treasure(self):
+        #get quality randomly (weighted)
+        quality_percent = random.randrange(100)
+
+        if quality_percent <= 36:
+            self.output("Treasure_Q_0.txt", self.num_items)
+            print("0")
+        elif quality_percent <= 63:
+            self.output("Treasure_Q_1.txt", self.num_items)
+            print("1")
+        elif quality_percent <= 83:
+            self.output("Treasure_Q_2.txt", self.num_items)
+            print("2")
+        elif quality_percent <= 97:
+            self.output("Treasure_Q_3.txt", self.num_items)
+            print("3")
+        elif quality_percent <= 100:
+            self.output("Treasure_Q_4.txt", self.num_items)
+            print("4")
 
     def output(self, itemFile, num_items):
         number_of_items = int(num_items)
@@ -80,7 +102,6 @@ class Items:
             text = self.font.render(item.strip(), False, (255, 255, 255))
             self.display.blit(text, (310, 200 + displace_val))
             displace_val += 50
-
     
     
 

@@ -24,6 +24,7 @@ class Button():
             if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
                 self.clicked = True
                 action = True
+                pygame.time.wait(200) #prevents more than one set of items from being generated when mouse is clicked
         if pygame.mouse.get_pressed()[0] == 0:
             self.clicked = False
 

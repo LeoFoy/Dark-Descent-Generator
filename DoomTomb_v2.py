@@ -1,6 +1,4 @@
 import pygame
-import pygame_widgets
-from pygame.locals import *
 from sys import exit
 import button as b
 import items as i
@@ -19,6 +17,7 @@ class Game:
         self.items = i.Items(self.screen, self.gameStateManager)
         self.monsters = m.Monsters(self.screen, self.gameStateManager)
         self.maps = map.Maps(self.screen, self.gameStateManager, Height)
+        self.clock = pygame.time.Clock()
 
         self.states = {'menu':self.menu, 'items':self.items, 
                        'monsters':self.monsters, 'maps':self.maps}
@@ -40,6 +39,7 @@ class Game:
     
     def run(self):
         while True:
+
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
@@ -49,6 +49,7 @@ class Game:
             self.states[self.gameStateManager.get_state()].run(events)
 
             pygame.display.update()
+            self.clock.tick(60)
 
 class Menu:
     def __init__(self, display, gameStateManager, game):
