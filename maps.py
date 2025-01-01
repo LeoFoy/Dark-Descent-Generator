@@ -28,10 +28,11 @@ class Maps:
 
         self.grid = [[0 for _ in range(self.grid_width)] for _ in range(self.grid_height)]
         self.rooms_generated = False
+
+        self.Angel_img = pygame.image.load('assets/Angel_Room.png').convert_alpha()
         
         self.img = pygame.image.load('assets/Shop_Icon.png').convert_alpha()
-        self.rect = self.img.get_rect()
-        #self.rect.center = 100, 100
+
         self.selected_image = None
 
         self.image_List = []
@@ -100,11 +101,18 @@ class Maps:
                 if self.selected_image:
                     self.selected_image['moving'] = False
                     self.selected_image = None
-                
-                # Add a new image when the mouse is released
-                new_rect = self.img.get_rect()
+
+                #Coin Img
+                new_rect = self.img.get_rect()  # Default to the coin icon
                 new_rect.center = self.screen_width - 50, 100
-                self.image_List.append({'rect': new_rect, 'moving': False})
+                self.image_List.append({'rect': new_rect, 'moving': False, 'image': self.img})  # Default is coin icon
+
+                #Angel Img
+                new_rect_angel = self.Angel_img.get_rect()
+                new_rect_angel.center = self.screen_width - 50, 200
+                self.image_List.append({'rect': new_rect_angel, 'moving': False, 'image': self.Angel_img})
+
+                #Add other images in the same way below:
 
             elif event.type == pygame.MOUSEMOTION:
                 if self.selected_image and self.selected_image['moving']:
@@ -129,7 +137,7 @@ class Maps:
 
         # Draw all the images
         for image_dict in self.image_List:
-            self.display.blit(self.img, image_dict['rect'])
+            self.display.blit(image_dict['image'], image_dict['rect'])
 
         
         pygame.display.flip()

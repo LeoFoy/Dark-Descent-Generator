@@ -56,15 +56,6 @@ class Menu:
         self.display = display
         self.gameStateManager = gameStateManager
         self.game = game
-        self.logo_img = pygame.image.load('assets/DoomTomb_Logo.png').convert_alpha()
-        self.gen_img = pygame.image.load('assets/gen_img.png').convert_alpha()
-        self.item_img = pygame.image.load('assets/item_btn.png').convert_alpha()
-        self.itemClicked_img = pygame.image.load('assets/item_btn_clicked.png').convert_alpha()
-        self.mon_img = pygame.image.load('assets/monster_btn.png').convert_alpha()
-        self.monClicked_img = pygame.image.load('assets/monster_clicked.png').convert_alpha()
-        self.map_img = pygame.image.load('assets/map_btn.png').convert_alpha()
-        self.mapClicked_img = pygame.image.load('assets/map_clicked.png').convert_alpha()
-        #self.exit_img = pygame.image.load('assets/exit_btn.png').convert_alpha()
 
     def run(self, events):
         self.display.fill('black')
