@@ -7,7 +7,7 @@ class Items:
         self.display = display
         self.gameStateManager = gameStateManager
         self.font = pygame.font.Font('freesansbold.ttf', 30)
-        self.num_items = '0'
+        self.num_items = ' '
         self.show_output = False  # Flag to control when to show the output
         self.output_triggered = False  # New flag to call output once
         self.item_list = []  # Store the generated items
@@ -39,64 +39,74 @@ class Items:
 
         #Clear item text after every new input
     
+        #Back button
+        back_button = b.Button(28, 22, "<", "Arial", 35, (255,255,255), 1.0)
+        if back_button.draw(self.display):
+            self.gameStateManager.set_state('menu')
+
     #Menu
         #BUTTONS
         #Treasure Room 
-        treasure_button = b.Button(140, 300, "Treasure Room", 'Arial', 40, (255, 255, 255), 1.0)
+        treasure_button = b.Button(200, 190, "Treasure Room", 'Arial', 40, (255, 255, 255), 1.0)
         if treasure_button.draw(self.display):
             self.item_list.clear() 
             self.generate_treasure()
 
         #Secret Room
-        secret_button = b.Button(140, 350, "Secret Room", 'Arial', 40, (255, 255, 255), 1.0)
+        secret_button = b.Button(200, 250, "Secret Room", 'Arial', 40, (255, 255, 255), 1.0)
         if secret_button.draw(self.display):
             self.item_list.clear() 
             self.generate_secret()
 
         #Boss Room
-        boss_button = b.Button(140, 400, "Boss Room", 'Arial', 40, (255, 255, 255), 1.0)
+        boss_button = b.Button(200, 310, "Boss Room", 'Arial', 40, (255, 255, 255), 1.0)
         if boss_button.draw(self.display):
             self.item_list.clear() 
             self.generate_boss()
 
         #Shop 
-        shop_button = b.Button(140, 450, "Shop Room", 'Arial', 40, (255, 255, 255), 1.0)
+        shop_button = b.Button(200, 370, "Shop Room", 'Arial', 40, (255, 255, 255), 1.0)
         if shop_button.draw(self.display):
             self.item_list.clear() 
             self.generate_shop()
 
         #Angel Room
-        angel_button = b.Button(140, 500, "Angel Room", 'Arial', 40, (255, 255, 255), 1.0)
+        angel_button = b.Button(200, 430, "Angel Room", 'Arial', 40, (255, 255, 255), 1.0)
         if angel_button.draw(self.display):
             self.item_list.clear() 
             self.generate_angel()
 
         #Devil Deal
-        devil_button = b.Button(140, 550, "Devil Room", 'Arial', 40, (255, 255, 255), 1.0)
+        devil_button = b.Button(200, 490, "Devil Room", 'Arial', 40, (255, 255, 255), 1.0)
         if devil_button.draw(self.display):
             self.item_list.clear() 
             self.generate_devil()
 
         #Challenge Room
-        challenge_button = b.Button(140, 600, "Challenge Room", 'Arial', 40, (255, 255, 255), 1.0)
+        challenge_button = b.Button(200, 550, "Challenge Room", 'Arial', 40, (255, 255, 255), 1.0)
         if challenge_button.draw(self.display):
             self.item_list.clear() 
             self.generate_challenge()
 
         #Gold Chest
-        goldchest_button = b.Button(140, 650, "Gold Chest", 'Arial', 40, (255, 255, 255), 1.0)
+        goldchest_button = b.Button(200, 610, "Gold Chest", 'Arial', 40, (255, 255, 255), 1.0)
         if goldchest_button.draw(self.display):
             self.item_list.clear() 
             self.generate_goldChest()
         #Chaos 
-        chaos_button = b.Button(140, 700, "Chaos", 'Arial', 40, (255, 255, 255), 1.0)
+        chaos_button = b.Button(200, 670, "Chaos", 'Arial', 40, (255, 255, 255), 1.0)
         if chaos_button.draw(self.display):
             self.item_list.clear() 
             self.generate_chaos()
 
         # Always display the item count
+        text_box = b.Button(367, 85, "    ", 'Arial', 40, (255, 255, 255), 1.0)
+        if text_box.draw(self.display):
+            return
+        text = self.font.render("Number of items:", False, (255, 255, 255))
+        self.display.blit(text, (70, 70))
         self.text_surface = self.font.render(self.num_items, True, (255, 255, 255))
-        self.display.blit(self.text_surface, (200, 0))
+        self.display.blit(self.text_surface, (340, 72))
 
         # Show output if the item list is not empty
         if self.item_list:
@@ -319,6 +329,6 @@ class Items:
         displace_val = 0
         for item in self.item_list:
             text = self.font.render(item.strip(), False, (255, 255, 255))
-            self.display.blit(text, (310, 200 + displace_val))
+            self.display.blit(text, (450, 165 + displace_val))
             displace_val += 50
     

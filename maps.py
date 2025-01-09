@@ -33,6 +33,18 @@ class Maps:
         
         self.img = pygame.image.load('assets/Shop_Icon.png').convert_alpha()
 
+        self.secret_img = pygame.image.load('assets/secret_room.png').convert_alpha()
+
+        self.treasure_img = pygame.image.load('assets/Treasure_Room.png').convert_alpha()
+
+        self.vault_img = pygame.image.load('assets/Vault_Icon.png').convert_alpha()
+
+        self.devil_img = pygame.image.load('assets/Devil_Room.png').convert_alpha()
+
+        self.challenge_img = pygame.image.load('assets/Challenge_Room.png').convert_alpha()
+
+        self.boss_img = pygame.image.load('assets/Boss_Room.png').convert_alpha()
+
         self.selected_image = None
 
         self.image_List = []
@@ -104,13 +116,43 @@ class Maps:
 
                 #Coin Img
                 new_rect = self.img.get_rect()  # Default to the coin icon
-                new_rect.center = self.screen_width - 50, 100
+                new_rect.center = self.screen_width - 50, 50
                 self.image_List.append({'rect': new_rect, 'moving': False, 'image': self.img})  # Default is coin icon
+
+                #Secret Img
+                new_rect_secret = self.secret_img.get_rect()
+                new_rect_secret.center = self.screen_width - 50, 150
+                self.image_List.append({'rect': new_rect_secret, 'moving': False, 'image': self.secret_img})
+
+                #Treasure Img
+                new_rect_treasure = self.treasure_img.get_rect()
+                new_rect_treasure.center = self.screen_width - 50, 250
+                self.image_List.append({'rect': new_rect_treasure, 'moving': False, 'image': self.treasure_img})
+
+                #Vault Img
+                new_rect_vault = self.vault_img.get_rect()
+                new_rect_vault.center = self.screen_width - 50, 350
+                self.image_List.append({'rect': new_rect_vault, 'moving': False, 'image': self.vault_img})
 
                 #Angel Img
                 new_rect_angel = self.Angel_img.get_rect()
-                new_rect_angel.center = self.screen_width - 50, 200
+                new_rect_angel.center = self.screen_width - 50, 450
                 self.image_List.append({'rect': new_rect_angel, 'moving': False, 'image': self.Angel_img})
+
+                #Devil img
+                new_rect_devil = self.devil_img.get_rect()
+                new_rect_devil.center = self.screen_width - 50, 550
+                self.image_List.append({'rect': new_rect_devil, 'moving': False, 'image': self.devil_img})
+
+                #Challenge Img
+                new_rect_challenge = self.challenge_img.get_rect()
+                new_rect_challenge.center = self.screen_width - 50, 650
+                self.image_List.append({'rect': new_rect_challenge, 'moving': False, 'image': self.challenge_img})
+
+                #Boss Img
+                new_rect_boss = self.boss_img.get_rect()
+                new_rect_boss.center = self.screen_width - 50, 750
+                self.image_List.append({'rect': new_rect_boss, 'moving': False, 'image': self.boss_img})
 
                 #Add other images in the same way below:
 
