@@ -184,7 +184,12 @@ class Maps:
             self.display.blit(image_dict['image'], image_dict['rect'])
 
 
-        save_button = b.Button(250, 750, "Save Map", 'Arial', 30, (255, 255, 255), 1.0)
+        #Back button
+        back_button = b.Button(28, 22, "<", "Arial", 35, (255,255,255), 1.0)
+        if back_button.draw(self.display):
+            self.gameStateManager.set_state('menu')
+
+        save_button = b.Button(350, 750, "Save Map", 'Arial', 30, (255, 255, 255), 1.0)
         if save_button.draw(self.display):
             self.save_map_as_png()
 
