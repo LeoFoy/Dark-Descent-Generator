@@ -1,5 +1,6 @@
 import pygame
 import random
+import button as b
 
 class Maps:
     def __init__(self, display, gameStateManager, height):
@@ -88,6 +89,7 @@ class Maps:
 
     def save_map_as_png(self):
         pygame.draw.rect(self.display, 'black', (700, 0, self.cell_size * 2, 800))
+        pygame.draw.rect(self.display, 'black', (250, 700, 200, 100))
         pygame.display.flip()
         fname = "map.png"
         pygame.image.save(self.display, fname)
@@ -181,5 +183,16 @@ class Maps:
         for image_dict in self.image_List:
             self.display.blit(image_dict['image'], image_dict['rect'])
 
+
+        save_button = b.Button(250, 750, "Save Map", 'Arial', 30, (255, 255, 255), 1.0)
+        if save_button.draw(self.display):
+            self.save_map_as_png()
+
+        """
+            #Couldn't figure out how to regen the map without going back to the menu
+            regen_button = b.Button(450, 750, "Regenerate Map", 'Arial', 30, (255, 255, 255), 1.0)
+            if regen_button.draw(self.display):
+            self.gameStateManager.set_state('maps')
+        """
         
         pygame.display.flip()
