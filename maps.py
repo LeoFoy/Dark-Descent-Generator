@@ -90,6 +90,7 @@ class Maps:
     def save_map_as_png(self):
         pygame.draw.rect(self.display, 'black', (700, 0, self.cell_size * 2, 800))
         pygame.draw.rect(self.display, 'black', (250, 700, 200, 100))
+        pygame.draw.rect(self.display, 'black', (0, 0, 200, 100))
         pygame.display.flip()
         fname = "map.png"
         pygame.image.save(self.display, fname)
