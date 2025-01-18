@@ -1,0 +1,55 @@
+## Dark Descent Generator Manual ##
+
+# Main Menu 
+The main menu is composed of three buttons and will appear on startup:
+    Items
+        Clicking this button brings you to the items page (see items page section)
+    Monsters
+        Clicking this button brings you to the Monsters page (see monster page section)
+    Map
+        Clicing this button brings you to the Map page (see map page section)
+
+# Item Page
+This page allows the user to generate several random items via buttons
+    Back button
+        The back button is located at the top left, clicking will bring the user to the Menu
+    Number of items
+        This label denotes the purpose of the text box to it's right
+        The box simply acts as a container, it does not need to be clicked in
+    Item list buttons
+        Under "Number of items" there are a series of buttons
+        These buttons are named after the set of items they represent
+        Clicking a button while there is a valid number in the "Number of items" box will generate that many items on the right
+        See "Manipulating Data" for changes the item lists 
+        
+    *Steps of Item page Usage*
+    1. Start by typing a number, press backspace to delete it
+    2. The number will appear in the "Number of items" text box
+    3. Click any of the Item list buttons
+    4. A number of items should appear on the right side of the screen
+    5. When done, press the Back button (top left) to return to menu
+
+# Monsters Page
+This page allows the user to generate several Monsters
+    Generate Monsters button
+        This button generates 3-8 Monsters
+        See "Manipulating Data" to change monster list
+
+# Map Page
+This page generates a random map and allows user to place room icons
+    Save map button
+        This button will take a snapshot of the map in it's current state
+        This will generate a map.png in the app folder
+        New maps will override eachother
+    
+    To place icons:
+        Click and drag image, place anywhere
+
+# Manipulating Data
+To manipulate data, find the data directory in the app folder
+    Item files are organized by room and quality
+    For instance, Angel_Q_1 means Angel room items of quality 1
+    To add data, make a new line and type your data, keep this to one line
+    
+        
+
